@@ -25,16 +25,11 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String orderId;
     private String customerName;
 
     private String customerEmail;
 
     private Timestamp orderDate = Timestamp.from(Instant.now());
-
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "orders")
-    @ToString.Exclude
-    private Collection<Inventory> inventories;
 }

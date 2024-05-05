@@ -1,11 +1,12 @@
 package com.zee.modulith.inventory;
 
+import com.zee.modulith.order.Order;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.math.BigDecimal;
+import java.util.Collection;
 
 /**
  * @author : Ezekiel Eromosei
@@ -21,10 +22,11 @@ public class Inventory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
     @Column(unique = true, nullable = false)
     private String name;
     private String description;
     private long price;
     private int quantity;
+
 }
