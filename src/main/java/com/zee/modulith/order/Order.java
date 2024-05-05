@@ -1,6 +1,6 @@
 package com.zee.modulith.order;
 
-import com.zee.modulith.inventory.Inventory;
+import com.zee.modulith.order.type.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +8,6 @@ import lombok.ToString;
 
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.Collection;
 
 
 /**
@@ -30,6 +29,6 @@ public class Order {
     private String customerName;
 
     private String customerEmail;
-
     private Timestamp orderDate = Timestamp.from(Instant.now());
+    private Status status = Status.OPEN;
 }

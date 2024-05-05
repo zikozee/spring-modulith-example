@@ -21,7 +21,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class Setup implements CommandLineRunner {
+class Setup implements CommandLineRunner {
     private final InventoryRepository repository;
 
     @Override
