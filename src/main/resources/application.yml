@@ -1,1 +1,7 @@
-spring.application.name=spring-modulith-example
+spring:
+  application:
+    name: spring-modulith-example
+
+  jpa:
+    hibernate:
+      ddl-auto: update

@@ -16,11 +16,13 @@ import java.math.BigDecimal;
 @Setter
 @ToString
 @Entity
+@Table(indexes = @Index(name = "inventory_name_idx", columnList = "name"))
 public class Inventory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true, nullable = false)
     private String name;
     private String description;
     private long price;
