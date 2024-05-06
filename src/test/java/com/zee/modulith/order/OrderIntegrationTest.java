@@ -5,8 +5,11 @@ import org.springframework.modulith.test.ApplicationModuleTest;
 
 
 
-@ApplicationModuleTest
+@ApplicationModuleTest(mode = ApplicationModuleTest.BootstrapMode.DIRECT_DEPENDENCIES)
 class OrderIntegrationTest {
+
+//    @MockBean
+//    InventoryExposedService exposedService;
 
     @Test
     void verifyOrderModule() {
