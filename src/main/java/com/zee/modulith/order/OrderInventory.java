@@ -23,4 +23,6 @@ public class OrderInventory {
     private long id;
     private long orderId;
     private long inventoryId;
+    private int qty;
+    private long totalQtyPrice;
 }

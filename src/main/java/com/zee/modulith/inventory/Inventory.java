@@ -1,6 +1,5 @@
 package com.zee.modulith.inventory;
 
-import com.zee.modulith.order.Order;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +26,5 @@ public class Inventory {
     private String name;
     private String description;
     private long price;
-    private int quantity;
 
 }
