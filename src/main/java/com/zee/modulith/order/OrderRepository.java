@@ -1,6 +1,5 @@
-package com.zee.modulith.payment.repository;
+package com.zee.modulith.order;
 
-import com.zee.modulith.payment.Payment;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,5 +9,5 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface PaymentRepository extends CrudRepository<Payment, Long> {
+interface OrderRepository extends CrudRepository<Order, Long> {
 }

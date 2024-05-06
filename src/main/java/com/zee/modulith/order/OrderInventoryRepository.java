@@ -1,6 +1,5 @@
-package com.zee.modulith.order.repository;
+package com.zee.modulith.order;
 
-import com.zee.modulith.order.Order;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,5 +9,5 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface OrderRepository extends CrudRepository<Order, Long> {
+interface OrderInventoryRepository extends CrudRepository<OrderInventory, Long> {
 }

@@ -1,6 +1,5 @@
-package com.zee.modulith.inventory.repository;
+package com.zee.modulith.inventory;
 
-import com.zee.modulith.inventory.Inventory;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +11,7 @@ import java.util.Optional;
  */
 
 @Repository
-public interface InventoryRepository extends CrudRepository<Inventory, Integer> {
+interface InventoryRepository extends CrudRepository<Inventory, Long> {
     Optional<Inventory> getInventoryByName(String inventoryName);
 
 }
