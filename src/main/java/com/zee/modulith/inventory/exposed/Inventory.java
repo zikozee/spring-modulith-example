@@ -1,11 +1,9 @@
-package com.zee.modulith.inventory;
+package com.zee.modulith.inventory.exposed;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
-import java.util.Collection;
 
 /**
  * @author : Ezekiel Eromosei

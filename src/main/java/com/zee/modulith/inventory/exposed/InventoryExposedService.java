@@ -1,10 +1,9 @@
 package com.zee.modulith.inventory.exposed;
 
-import com.zee.modulith.inventory.Inventory;
-import com.zee.modulith.inventory.InventoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -20,5 +19,9 @@ public class InventoryExposedService {
 
     public Optional<Inventory> fetchInventoryByName(String name) {
         return repository.getInventoryByName(name);
+    }
+
+    public List<Inventory> fetchAllInName(List<String> inventoryNames) {
+        return repository.getInventoryByNameIn(inventoryNames);
     }
 }

@@ -25,7 +25,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String orderId;
+    private String orderIdentifier;
     private String customerName;
 
     private String customerEmail;

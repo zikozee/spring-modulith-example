@@ -3,6 +3,7 @@ package com.zee.modulith.order;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * @author : Ezekiel Eromosei
@@ -12,6 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@ToString
 @Table(indexes = {
         @Index(name = "ord_idx", columnList = "order_id"),
         @Index(name = "inv_idx", columnList = "inventory_id")

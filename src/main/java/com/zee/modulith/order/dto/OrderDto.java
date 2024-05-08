@@ -13,12 +13,12 @@ import java.util.List;
 public record OrderDto(
         String customerName,
         String customerEmail,
-        String inventoryName,
         List<InventoryDto> inventories,
         String message,
-        Integer statusCode) {
+        Integer statusCode,
+        PaymentDto paymentDto) {
 
-    public OrderDto(String message, Integer statusCode) {
-        this(null, null, null, null, message, statusCode);
+    public OrderDto(String message, Integer statusCode, PaymentDto paymentDto) {
+        this(null, null, null, message, statusCode, paymentDto);
     }
 }

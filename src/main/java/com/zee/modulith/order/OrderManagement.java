@@ -1,7 +1,6 @@
 package com.zee.modulith.order;
 
-import com.zee.modulith.inventory.exposed.InventoryExposedService;
-import com.zee.modulith.order.dto.OrderDto;
+import com.zee.modulith.order.dto.PaymentDto;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
@@ -16,16 +15,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class OrderManagement {
 
-    private final OrderRepository orderRepository;
+
     private final ApplicationEventPublisher eventPublisher;
-    private final InventoryExposedService inventoryExposedService;
 
     @Transactional
-    public void completeOrder(final OrderDto orderDto) {
+    public void completeOrder(final PaymentDto paymentDto) {
 
-        // get inventories
-        // calculate price and total
-        // save to orderRepo and OrderInventoryRepo
         // create dto to be pushed to payment listener
         // publish to payment listener (remember to use @ApplicationModuleListener)
 
