@@ -1,3 +1,8 @@
+## show dependencies used and setup
+- setup from scratch
+- show how database connect from docker
+- show benefit of docker compose
+
 ## Define Project Structure
 - Order
 - Inventory
