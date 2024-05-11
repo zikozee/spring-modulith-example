@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class EventPublicationIntegrationTest {
 
     @Autowired
-    EventPublicationService eventPublicationService;
+    CustomEventPublicationService customEventPublicationService;
 
     @Order(1)
     @Test
@@ -27,25 +27,25 @@ class EventPublicationIntegrationTest {
     @Test
     void getUncompletedEventPublications() {
 
-        List<EventPublication> uncompletedEventPublications = eventPublicationService.getUncompletedEventPublications();
+        List<CustomEventPublication> uncompletedEventPublications = customEventPublicationService.getUncompletedEventPublications();
 
         uncompletedEventPublications
                 .forEach(event -> {
-                    assertThat(event).isInstanceOf(EventPublication.class);
+                    assertThat(event).isInstanceOf(CustomEventPublication.class);
                     assertThat(event.getCompletionDate()).isNull();
                 });
     }
 
     @Test
     void getCompletedEventPublications() {
-        List<EventPublication> uncompletedEventPublications = eventPublicationService.getCompletedEventPublications();
+        List<CustomEventPublication> uncompletedEventPublications = customEventPublicationService.getCompletedEventPublications();
 
         assertThat(uncompletedEventPublications).isNotEmpty();
         assertThat(uncompletedEventPublications.getFirst().getPublicationDate()).isNotNull();
 
         uncompletedEventPublications
                 .forEach(event -> {
-                    assertThat(event).isInstanceOf(EventPublication.class);
+                    assertThat(event).isInstanceOf(CustomEventPublication.class);
                     assertThat(event.getCompletionDate()).isNotNull();
                 });
     }

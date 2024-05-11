@@ -15,15 +15,28 @@ payment completes order
 
 ## Events
 use events to communicate  @ApplicationModuleListener
-keep track of failed and successful events
 ### Event Interface
 - CompletedEventPublications
 - IncompleteEventPublications
 
+### processing incomplete events
+- keep a cached table to store the canonicalname event payload (called event_type in the event_pub table)
+  - against the event action to be performed
+    -  e.g com.zee.modulith.order.dto.PaymentDto :  payment
+    -  e.g com.zee.modulith.order.dto.EmailDto :  Email
+- we can then keep an enum of event action
+- using spring batch + scheduler or just scheduler,
+  - we can read from the cached table using the event action to get the fully qualified name
+  - which we can pass as predicate to resubmitIncompletePublications(Predicate<EventPublication> filter) method 
+    - of incompleteEventTransactions
+  - this way we can accurately filter the events we need and resubmit at a scheduled time
+
 ### Event Repository
+- keep track of failed and successful events
 - create model to mirror the already provided event_publication better management
 - e.g the incompleteEventPublication does not have access to all uncompleted events
-- we could write a stream/list around this in order to better manage
+- we could write a stream/list around this in order to better manage or for analysis
+
 
 ### properties
 modulith:

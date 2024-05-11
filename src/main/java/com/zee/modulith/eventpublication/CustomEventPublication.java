@@ -18,7 +18,7 @@ import java.util.UUID;
 @ToString
 @Entity
 @Table(name = "event_publication")
-class EventPublication {
+public class CustomEventPublication {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

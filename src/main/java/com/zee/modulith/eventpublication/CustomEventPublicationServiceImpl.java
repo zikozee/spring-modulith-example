@@ -1,9 +1,11 @@
 package com.zee.modulith.eventpublication;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.modulith.events.EventPublication;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 /**
  * @author : Ezekiel Eromosei
@@ -12,17 +14,17 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class EventPublicationServiceImpl implements EventPublicationService {
+public class CustomEventPublicationServiceImpl implements CustomEventPublicationService {
 
-    private final EventPublicationRepository repository;
+    private final CustomEventPublicationRepository repository;
 
     @Override
-    public List<EventPublication> getUncompletedEventPublications() {
+    public List<CustomEventPublication> getUncompletedEventPublications() {
         return repository.findEventPublicationsByPublicationDateNotNullAndCompletionDateIsNull();
     }
 
     @Override
-    public List<EventPublication> getCompletedEventPublications() {
+    public List<CustomEventPublication> getCompletedEventPublications() {
         return repository.findEventPublicationsByPublicationDateNotNullAndCompletionDateNotNull();
     }
 }
