@@ -19,6 +19,7 @@ public class PaymentManagement {
 
     @ApplicationModuleListener
     void on(PaymentDto paymentDto) {
+//        throw new RuntimeException("event publication failed for orderId: "+ paymentDto.orderId());
 
         System.out.println("listener received :"+ paymentDto);
 
