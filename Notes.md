@@ -32,3 +32,8 @@ spring.modulith.events.jdbc-schema-initialization.enabled  ## not available
 
 enable "spring.modulith.events.jdbc-schema-initialization.enabled" to create model structure
 link model to entity
+
+
+### exception handling
+- use the feature in 1.2 called open_modules so it is shared in all classes
+- upgrade the modulith version. probably the spring-boot-starter-modulith or check the (3.3.0)

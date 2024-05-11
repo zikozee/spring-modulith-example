@@ -9,6 +9,7 @@ import com.zee.modulith.order.type.Status;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +49,7 @@ public class OrderService {
 
         PaymentDto paymentDto  = new PaymentDto(order.getOrderIdentifier(), amount.get());
         log.info("Payment {}", paymentDto);
-//        management.completeOrder(paymentDto);
+        management.completeOrder(paymentDto);
         return new OrderDto("Order Currently Processing", 102, paymentDto);
     }
 
