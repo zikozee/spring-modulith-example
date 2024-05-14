@@ -20,10 +20,14 @@ use events to communicate  @ApplicationModuleListener
 - IncompleteEventPublications
 
 ### processing incomplete events
-- keep a cached table to store the canonicalname event payload (called event_type in the event_pub table)
-  - against the event action to be performed
-    -  e.g com.zee.modulith.order.dto.PaymentDto :  payment
-    -  e.g com.zee.modulith.order.dto.EmailDto :  Email
+- keep a cached table EventActionBean (EventAction, canonical Name) to store the event action to be performed 
+  - against the canonical name event payload (called event_type in the event_pub table)
+    -  e.g payment: com.zee.modulith.order.dto.PaymentDto
+    -  e.g Email: com.zee.modulith.order.dto.EmailDto
+      - DONE
+  
+- scan and load at startup to the table (move uncommited to new package[module])
+
 - we can then keep an enum of event action
 - using spring batch + scheduler or just scheduler,
   - we can read from the cached table using the event action to get the fully qualified name

@@ -14,6 +14,6 @@ import java.util.UUID;
 @Repository
 interface CustomEventPublicationRepository extends CrudRepository<CustomEventPublication, UUID> {
 
-    List<CustomEventPublication> findEventPublicationsByPublicationDateNotNullAndCompletionDateIsNull();
-    List<CustomEventPublication> findEventPublicationsByPublicationDateNotNullAndCompletionDateNotNull();
+    List<CustomEventPublication> getEventPublicationsByPublicationDateNotNullAndCompletionDateIsNull();
+    List<CustomEventPublication> getEventPublicationsByPublicationDateNotNullAndCompletionDateNotNull();
 }

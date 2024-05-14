@@ -13,3 +13,7 @@ spring:
 
 
 #spring.modulith.events.jdbc-schema-initialization.enabled=false
+
+delete:
+  event:
+    duration: 5000
