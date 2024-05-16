@@ -3,19 +3,22 @@ package com.zee.modulith.order;
 import com.zee.modulith.order.dto.InventoryDto;
 import com.zee.modulith.order.dto.OrderDto;
 import com.zee.modulith.order.dto.PaymentDto;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.modulith.test.ApplicationModuleTest;
 import org.springframework.modulith.test.Scenario;
-import org.springframework.test.annotation.Commit;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@ApplicationModuleTest(mode = ApplicationModuleTest.BootstrapMode.DIRECT_DEPENDENCIES)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@ApplicationModuleTest(mode = ApplicationModuleTest.BootstrapMode.ALL_DEPENDENCIES)
 class OrderIntegrationTest {
 
 //    @MockBean
@@ -26,6 +29,14 @@ class OrderIntegrationTest {
     @Test
     void verifyOrderModule() {
 
+    }
+
+    static LocalDateTime date;
+
+    @BeforeAll
+    static void beforeAll() {
+        date = LocalDateTime.now();
+        System.out.println(date);
     }
 
     @Test
@@ -64,6 +75,7 @@ class OrderIntegrationTest {
 
     @Test
     void publishPaymentDtoTest(Scenario scenario) throws InterruptedException {
+
         scenario.publish(new PaymentDto(UUID.randomUUID().toString(), 6500000L))
                         .andWaitForEventOfType(PaymentDto.class)
                         .matching(event -> event.amount() == 6500000L)
