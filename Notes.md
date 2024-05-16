@@ -34,6 +34,7 @@ use events to communicate  @ApplicationModuleListener
   - which we can pass as predicate to resubmitIncompletePublications(Predicate<EventPublication> filter) method 
     - of incompleteEventTransactions
   - this way we can accurately filter the events we need and resubmit at a scheduled time
+- use **MOMENTS** to trigger events instead of scheduler
 
 ### Event Repository
 - keep track of failed and successful events
@@ -54,3 +55,6 @@ link model to entity
 ### exception handling
 - use the feature in 1.2 called open_modules so it is shared in all classes
 - upgrade the modulith version. probably the spring-boot-starter-modulith or check the (3.3.0)
+
+## Document Application Modules
+See spring-modulith-docs  in target folder
