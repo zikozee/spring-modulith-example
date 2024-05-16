@@ -13,6 +13,8 @@
 Order picks from Inventory
 payment completes order
 
+Send email to address, listen and send email (just log)                    ******
+
 ## Events
 use events to communicate  @ApplicationModuleListener
 ### Event Interface
@@ -51,10 +53,17 @@ spring.modulith.events.jdbc-schema-initialization.enabled  ## not available
 enable "spring.modulith.events.jdbc-schema-initialization.enabled" to create model structure
 link model to entity
 
+## Document Application Modules
+See spring-modulith-docs  in target folder
 
-### exception handling
+### exception handling  -->                    ******
 - use the feature in 1.2 called open_modules so it is shared in all classes
 - upgrade the modulith version. probably the spring-boot-starter-modulith or check the (3.3.0)
 
-## Document Application Modules
-See spring-modulith-docs  in target folder
+##  Add Runtime support  -->                    ******
+- Spring Modulith’s support for module initialization at application runtime.
+- see -> https://docs.spring.io/spring-modulith/reference/runtime.html
+
+## Production Ready Features  -->                    ******
+- see https://docs.spring.io/spring-modulith/reference/production-ready.html
+
