@@ -1,5 +1,6 @@
 package com.zee.modulith.payment;
 
+import com.zee.modulith.payment.type.PaymentStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,4 +26,5 @@ public class Payment {
     private String orderId;
     private long amount;
     private Timestamp paymentDate = Timestamp.from(Instant.now());
+    private PaymentStatus status = PaymentStatus.INCOMPLETE;
 }

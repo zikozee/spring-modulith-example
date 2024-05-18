@@ -2,9 +2,7 @@ package com.zee.modulith.order;
 
 import com.zee.modulith.inventory.exposed.Inventory;
 import com.zee.modulith.inventory.exposed.InventoryExposedService;
-import com.zee.modulith.order.dto.InventoryDto;
-import com.zee.modulith.order.dto.OrderDto;
-import com.zee.modulith.order.dto.PaymentDto;
+import com.zee.modulith.order.dto.*;
 import com.zee.modulith.order.type.Status;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -49,8 +48,21 @@ public class OrderService {
 
         PaymentDto paymentDto  = new PaymentDto(order.getOrderIdentifier(), amount.get());
         log.info("Payment {}", paymentDto);
-        management.completeOrder(paymentDto);
+        EmailDto emailDto = new EmailDto(orderDto.customerEmail(), orderDto.customerName(), order.getOrderIdentifier(), paymentDto.amount(), false);
+        management.completeOrder(paymentDto, emailDto);
         return new OrderDto("Order Currently Processing", 102, paymentDto);
+    }
+
+    public CompleteOrder completePayment(final CompleteOrder completeOrder) {
+        Optional<Order> optionalOrder = orderRepository.findOrderByOrderIdentifier(completeOrder.orderIdentifier());
+        if (optionalOrder.isEmpty()) throw new RuntimeException("Order not found");
+        Order order = optionalOrder.get();
+
+        final long amount = orderInventoryRepository.orderIdAmount(order.getId());
+        EmailDto emailDto = new EmailDto(order.getCustomerEmail(), order.getCustomerName(),
+                order.getOrderIdentifier(), amount, true);
+        management.completePayment(completeOrder, emailDto);
+        return new CompleteOrder(null, true);
     }
 
 
