@@ -66,4 +66,5 @@ See spring-modulith-docs  in target folder
 
 ## Production Ready Features  -->                    ******
 - see https://docs.spring.io/spring-modulith/reference/production-ready.html
+- http://localhost:8080/actuator/modulith
 
