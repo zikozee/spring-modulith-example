@@ -1,6 +1,7 @@
 package com.zee.modulith.order.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.validation.constraints.NotBlank;
 
 /**
  * @author : Ezekiel Eromosei
@@ -8,5 +9,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
  */
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public record CompleteOrder(String orderIdentifier, boolean paymentComplete) {
+public record CompleteOrder(
+        @NotBlank(message = "orderIdentifier cannot be blank")
+        String orderIdentifier,
+        boolean paymentComplete) {
 }

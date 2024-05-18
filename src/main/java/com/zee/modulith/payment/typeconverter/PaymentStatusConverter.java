@@ -1,5 +1,6 @@
 package com.zee.modulith.payment.typeconverter;
 
+import com.zee.modulith.exception.ModulithException;
 import com.zee.modulith.payment.type.PaymentStatus;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
@@ -16,15 +17,15 @@ public class PaymentStatusConverter implements AttributeConverter<PaymentStatus,
 
     @Override
     public String convertToDatabaseColumn(PaymentStatus status) {
-        if (status == null) throw new IllegalArgumentException("Status can not be null");
+        if (status == null) throw new ModulithException("Status can not be null");
         return status.getCode();
     }
 
     @Override
     public PaymentStatus convertToEntityAttribute(String code) {
-        if (code == null) throw new IllegalArgumentException("Code can not be null");
+        if (code == null) throw new ModulithException("Code can not be null");
         return Arrays.stream(PaymentStatus.values())
                 .filter(status -> status.getCode().equalsIgnoreCase(code))
-                .findFirst().orElseThrow(() -> new IllegalArgumentException("invalud code"));
+                .findFirst().orElseThrow(() -> new ModulithException("invalud code"));
     }
 }

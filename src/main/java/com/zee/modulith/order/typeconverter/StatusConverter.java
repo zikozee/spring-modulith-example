@@ -1,5 +1,6 @@
 package com.zee.modulith.order.typeconverter;
 
+import com.zee.modulith.exception.ModulithException;
 import com.zee.modulith.order.type.Status;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
@@ -20,13 +21,13 @@ public class StatusConverter implements AttributeConverter<Status, String> {
         return Arrays.stream(Status.values())
                 .filter(s -> s == status)
                 .map(Status::getCode)
-                .findFirst().orElseThrow(IllegalArgumentException::new);
+                .findFirst().orElseThrow(ModulithException::new);
     }
 
     @Override
     public Status convertToEntityAttribute(String code) {
         return Arrays.stream(Status.values())
                 .filter(s -> s.getCode().equals(code))
-                .findFirst().orElseThrow(IllegalArgumentException::new);
+                .findFirst().orElseThrow(ModulithException::new);
     }
 }
