@@ -1,5 +1,6 @@
 package com.zee.modulith.eventaction.action;
 
+import com.zee.modulith.exception.ModulithException;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
@@ -17,14 +18,14 @@ public class ActionConverter implements AttributeConverter<Action, String> {
     public String convertToDatabaseColumn(Action action) {
         if(action != null)
             return action.getCode();
-        throw new IllegalArgumentException("action is null");
+        throw new ModulithException("action is null");
     }
 
     @Override
     public Action convertToEntityAttribute(String code) {
-        if(code == null)  throw new IllegalArgumentException("code is null");
+        if(code == null)  throw new ModulithException("code is null");
         return Arrays.stream(Action.values())
                 .filter(action -> action.getCode().equals(code))
-                .findFirst().orElseThrow(() -> new IllegalArgumentException("action not found"));
+                .findFirst().orElseThrow(() -> new ModulithException("action not found"));
     }
 }

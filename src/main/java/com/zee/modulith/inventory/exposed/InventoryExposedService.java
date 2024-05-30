@@ -1,5 +1,6 @@
 package com.zee.modulith.inventory.exposed;
 
+import com.zee.modulith.exception.ModulithException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +18,9 @@ public class InventoryExposedService {
 
     private final InventoryRepository repository;
 
-    public Optional<Inventory> fetchInventoryByName(String name) {
-        return repository.getInventoryByName(name);
+    public Inventory fetchInventoryByName(String name) {
+        return repository.getInventoryByName(name)
+                .orElseThrow(ModulithException::new);
     }
 
     public List<Inventory> fetchAllInName(List<String> inventoryNames) {

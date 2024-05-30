@@ -1,14 +1,31 @@
-## show dependencies used and setup
+COURSE NAME: Spring Modulith (Simplified)
+## Monoliths vs Micro service
+- advantages of each
+- failure points of each
+- how moduliths come in
+  - show diagram
+
+## show dependencies used and setup   ---->>> DONE
 - setup from scratch
 - show how database connect from docker
 - show benefit of docker compose
 
-## Define Project Structure
-- Order
-- Inventory
-- Payment
+- create a github issue for the above and push
+- connect database withing intellij
 
-- prepopulate Inventory with Items
+## Define Project Structure
+- show diagram of the project goal
+- 
+- video 1
+  - Order
+  - Inventory
+  - Payment
+
+- video 2
+  - prepopulate Inventory with Items
+
+
+
 
 Order picks from Inventory
 payment completes order
@@ -55,10 +72,12 @@ link model to entity
 
 ## Document Application Modules
 See spring-modulith-docs  in target folder
+- write connecting test, run the test and check
+  - target/spring-modulith-docs
 
 ### exception handling  -->                    ******
-- use the feature in 1.2 called open_modules so it is shared in all classes
-- upgrade the modulith version. probably the spring-boot-starter-modulith or check the (3.3.0)
+- use the feature in 1.2.0-RC1 called open_modules so it is shared in all classes
+- upgrade the modulith version. probably the spring-boot-starter-modulith or check the (3.3.0-SNAPSHOT)
 
 ##  Add Runtime support  -->                    ******
 - Spring Modulith’s support for module initialization at application runtime.
